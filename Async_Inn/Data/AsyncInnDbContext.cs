@@ -8,7 +8,7 @@ namespace Async_Inn.Data
 {
     public class AsyncInnDbContext : DbContext
     {
-        public AsyncInnDbConext(DbContextOptions<AsyncInnDbContext> options) : base(options)
+        public AsyncInnDbContext(DbContextOptions<AsyncInnDbContext> options) : base(options)
         {
         }
     }
