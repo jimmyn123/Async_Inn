@@ -1,0 +1,16 @@
+﻿tr:nth-child(2n+1){
+    background-color: lightgray;
+}
+
+tr:nth-child(2n), th {
+    background-color: dimgray;
+}
+
+a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+a:hover {
+    color: grey;
+}
