@@ -1,5 +1,9 @@
-﻿.menuItem {
+﻿tr:nth-child(2n+1){
+    background-color: lightgray;
+}
 
+tr:nth-child(2n), th {
+    background-color: dimgray;
 }
 
 a {
