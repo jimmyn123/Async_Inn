@@ -33,6 +33,8 @@ namespace Async_Inn
                     template: "{controller=Home}/{action=Index}/{id?}"
                     );
             });
+
+            app.UseStaticFiles();
         }
     }
 }
