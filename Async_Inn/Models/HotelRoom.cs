@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Async_Inn.Models
 {
@@ -11,7 +8,9 @@ namespace Async_Inn.Models
         public int HotelID { get; set; }
         public int RoomNumber { get; set; }
         public decimal RoomID { get; set; }
+        [DataType(DataType.Currency)]
         public decimal Rate { get; set; }
+        [Required]
         public bool PetFriendly { get; set; }
 
         // Navigation Properties
