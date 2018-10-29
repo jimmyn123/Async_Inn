@@ -4,61 +4,66 @@
     ViewData["Title"] = "Index";
 }
 <html>
-    <head>
-        <title></title>
-        <link rel="stylesheet" type="text/css" href="~/style.css" />
-    </head>
-    <body>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="~/style.css" />
+</head>
+<body>
+    <h2>Hotel Rooms Index</h2>
 
-        <h2>Hotel Rooms Index</h2>
-
-        <p>
-            <a asp-action="Create">Create New</a>
-        </p>
-        <table class="table">
-            <thead>
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.RoomNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PetFriendly)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hotel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.RoomID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PetFriendly)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Hotel)
-                    </th>
-                    <th></th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RoomNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Rate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PetFriendly)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hotel.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Room.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.RoomID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Rate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PetFriendly)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Hotel.ID)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
 
-        <a asp-action="../Home/Index">Back to main page</a>
-    </body>
+    <a asp-action="../Home/Index">Back to main page</a>
+</body>
 </html>
