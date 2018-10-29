@@ -82,7 +82,7 @@ namespace Async_Inn.Migrations
 
                     b.Property<decimal>("Rate");
 
-                    b.Property<int>("RoomNumber");
+                    b.Property<string>("RoomNumber");
 
                     b.HasKey("HotelID", "RoomID");
 

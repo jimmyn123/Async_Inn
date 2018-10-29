@@ -12,10 +12,10 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.RoomID)
+            @Html.DisplayNameFor(model => model.RoomNumber)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.RoomID)
+            @Html.DisplayFor(model => model.RoomNumber)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Rate)
@@ -35,11 +35,17 @@
         <dd>
             @Html.DisplayFor(model => model.Hotel.ID)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Room)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Room.ID)
+        </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="HotelID" />
-        <input type="hidden" asp-for="RoomNumber" />
+        <input type="hidden" asp-for="RoomID" />
         <input type="submit" value="Delete" class="btn btn-default" /> |
         <a asp-action="Index">Back to List</a>
     </form>
