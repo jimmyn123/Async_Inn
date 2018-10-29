@@ -4,14 +4,16 @@ using Async_Inn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20181029053930_changed_room_id")]
+    partial class changed_room_id
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,15 +78,15 @@ namespace Async_Inn.Migrations
                 {
                     b.Property<int>("HotelID");
 
-                    b.Property<int>("RoomID");
+                    b.Property<int>("RoomNumber");
 
                     b.Property<bool>("PetFriendly");
 
                     b.Property<decimal>("Rate");
 
-                    b.Property<int>("RoomNumber");
+                    b.Property<int>("RoomID");
 
-                    b.HasKey("HotelID", "RoomID");
+                    b.HasKey("HotelID", "RoomNumber");
 
                     b.HasIndex("RoomID");
 

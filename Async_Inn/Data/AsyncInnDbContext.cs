@@ -25,7 +25,7 @@ namespace Async_Inn.Data
         {
             // sets the keys to composite keys
             modelBuilder.Entity<HotelRoom>().HasKey(
-                ce => new { ce.HotelID, ce.RoomNumber }
+                ce => new { ce.HotelID, ce.RoomID }
                 );
 
             modelBuilder.Entity<RoomAmenities>().HasKey(

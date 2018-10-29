@@ -7,7 +7,7 @@ namespace Async_Inn.Models
         // HotelRoom fields
         public int HotelID { get; set; }
         public int RoomNumber { get; set; }
-        public decimal RoomID { get; set; }
+        public int RoomID { get; set; }
         [DataType(DataType.Currency)]
         public decimal Rate { get; set; }
         [Required]
