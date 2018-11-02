@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Async_Inn.Data;
+using Async_Inn.Models.Interfaces;
+using Async_Inn.Models.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,6 +31,10 @@ namespace Async_Inn
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // adding the services so they refresh every time you click on them
+            services.AddTransient<IHotel, HotelService>();
+            services.AddTransient<IRoom, RoomService>();
+            services.AddTransient<IAmenities, AmenitiesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
