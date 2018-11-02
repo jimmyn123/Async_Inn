@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
-    [DbContext(typeof(IRooms))]
+    [DbContext(typeof(AsyncInnDbContext))]
     partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
