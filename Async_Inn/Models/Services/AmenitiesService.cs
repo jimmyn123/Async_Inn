@@ -57,16 +57,5 @@ namespace Async_Inn.Models.Services
         {
             return await _context.Amenities.FirstOrDefaultAsync(x => x.ID == id);
         }
-
-        /// <summary>
-        /// Update the amenity
-        /// </summary>
-        /// <param name="amenity">The amenity to update</param>
-        /// <returns></returns>
-        public async Task UpdateAmenity(Amenities amenity)
-        {
-            _context.Update(amenity);
-            await _context.SaveChangesAsync();
-        }
     }
 }
