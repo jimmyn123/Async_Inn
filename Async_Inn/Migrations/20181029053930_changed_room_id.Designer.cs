@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
-    [DbContext(typeof(AsyncInnDbContext))]
+    [DbContext(typeof(IRooms))]
     [Migration("20181029053930_changed_room_id")]
     partial class changed_room_id
     {
