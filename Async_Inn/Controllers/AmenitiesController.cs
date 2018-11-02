@@ -64,56 +64,6 @@ namespace Async_Inn.Controllers
             return View(amenities);
         }
 
-        // GET: Amenities/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var amenities = await _context.GetAmenity(id);
-            if (amenities == null)
-            {
-                return NotFound();
-            }
-            return View(amenities);
-        }
-
-        // POST: Amenities/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name")] Amenities amenities)
-        {
-            if (id != amenities.ID)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    await _context.UpdateAmenity(amenities);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AmenitiesExists(amenities.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(amenities);
-        }
-
         // GET: Amenities/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {

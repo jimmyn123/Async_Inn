@@ -50,6 +50,20 @@ namespace Async_Inn.Models.Services
         }
 
         /// <summary>
+        /// Returns the hotel room model of a composite key
+        /// </summary>
+        /// <param name="HotelID">The hotel id to search for</param>
+        /// <param name="RoomID">The room id to search for</param>
+        /// <returns>Returns the hotelroom that it finds</returns>
+        public async Task<HotelRoom> GetHotelRoom(int? hotelID, int? roomID)
+        {
+            return await _context.HotelRooms
+                .Include(h => h.Hotel)
+                .Include(h => h.Room)
+                .FirstOrDefaultAsync(hr => hr.HotelID == hotelID && hr.RoomID == roomID);
+        }
+
+        /// <summary>
         /// Gets one specific hotel
         /// </summary>
         /// <param name="id">The id of the hotel to return</param>
