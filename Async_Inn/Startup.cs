@@ -31,6 +31,7 @@ namespace Async_Inn
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            // adding the services so they refresh every time you click on them
             services.AddTransient<IHotel, HotelService>();
             services.AddTransient<IRoom, RoomService>();
             services.AddTransient<IAmenities, AmenitiesService>();
