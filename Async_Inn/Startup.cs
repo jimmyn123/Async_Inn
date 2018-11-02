@@ -33,7 +33,6 @@ namespace Async_Inn
 
             services.AddTransient<IHotel, HotelService>();
 
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

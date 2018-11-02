@@ -16,19 +16,22 @@ namespace Async_Inn.Models.Services
             _context = context;
         }
 
-        public Task CreateHotel(Hotel hotel)
+        public async Task CreateHotel(Hotel hotel)
         {
-            throw new NotImplementedException();
+            _context.Add(hotel);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteHotel(int id)
+        public async Task DeleteHotel(int id)
         {
-            throw new NotImplementedException();
+            Hotel hotel = await GetHotel(id);
+            _context.Remove(hotel);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Hotel> GetHotel(int id)
+        public async Task<Hotel> GetHotel(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Hotels.FirstOrDefaultAsync(x => x.ID == id);
         }
 
         public async Task<IEnumerable<Hotel>> GetHotels()
@@ -36,9 +39,10 @@ namespace Async_Inn.Models.Services
             return await _context.Hotels.ToListAsync();
         }
 
-        public Task UpdateHotel(Hotel hotel)
+        public async Task UpdateHotel(Hotel hotel)
         {
-            throw new NotImplementedException();
+            _context.Hotels.Update(hotel);
+            await _context.SaveChangesAsync();
         }
     }
 }
