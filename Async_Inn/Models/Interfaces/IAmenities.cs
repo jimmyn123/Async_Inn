@@ -7,6 +7,7 @@ namespace Async_Inn.Models.Interfaces
 {
     public interface IAmenities
     {
+        // required methods for the IAmenities interface
         Task CreateAmenity(Amenities amenity);
         Task UpdateAmenity(Amenities amenity);
         Task<Amenities> GetAmenity(int? id);

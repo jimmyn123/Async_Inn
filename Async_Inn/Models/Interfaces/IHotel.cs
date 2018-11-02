@@ -7,6 +7,7 @@ namespace Async_Inn.Models.Interfaces
 {
     public interface IHotel
     {
+        // required methods for the IHotel interface
         Task CreateHotel(Hotel hotel);
         Task UpdateHotel(Hotel hotel);
         Task<Hotel> GetHotel(int? id);

@@ -7,6 +7,7 @@ namespace Async_Inn.Models.Interfaces
 {
     public interface IRoom
     {
+        // required methods for the IRoom interface
         Task CreateRoom(Room room);
         Task UpdateRoom(Room room);
         Task<Room> GetRoom(int? id);
