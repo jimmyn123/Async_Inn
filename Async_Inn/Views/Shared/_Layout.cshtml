@@ -7,11 +7,13 @@
     <partial name="_LinksAndScripts.cshtml" />
 </head>
 <body>
-    <header>
-        <h1>Async Winn</h1>
-        An Inn for the Win!
-    </header>
-    @RenderBody()
+    <div class="container">
+        <header id="bootstrap-override">
+            <h1>Async Winn</h1>
+            An Inn for the Win!
+        </header>
+        @RenderBody()
+    </div>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

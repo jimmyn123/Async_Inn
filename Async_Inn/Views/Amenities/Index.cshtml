@@ -8,6 +8,11 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<form class="search" method="post">
+    <label for="search">Search Amenities</label>
+    <input type="text" asp-route-data="searchterm" placeholder="Amenity Name" name="search" />
+    <button type="submit">Search</button>
+</form>
 <table class="table">
     <thead>
         <tr>
