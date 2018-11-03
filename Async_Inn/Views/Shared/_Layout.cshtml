@@ -4,9 +4,13 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>_Layout</title>
+    <partial name="_LinksAndScripts.cshtml" />
 </head>
 <body>
-    <h1>THIS IS ASYNC INN</h1>
+    <header>
+        <h1>Async Winn</h1>
+        An Inn for the Win!
+    </header>
     @RenderBody()
     @RenderSection("Scripts", required: false)
 </body>

@@ -1,4 +1,9 @@
-﻿tr:nth-child(2n+1){
+﻿body{
+    width: 960px;
+    margin: 0 auto;
+}
+
+tr:nth-child(2n+1){
     background-color: lightgray;
 }
 
