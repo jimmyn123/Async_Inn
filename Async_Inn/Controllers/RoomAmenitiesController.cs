@@ -111,7 +111,7 @@ namespace Async_Inn.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoomAmenitiesExists(roomAmenities.AmenitiesID))
+                    if (!RoomAmenitiesExists(roomAmenities.AmenitiesID, roomAmenities.RoomID))
                     {
                         return NotFound();
                     }
@@ -136,9 +136,6 @@ namespace Async_Inn.Controllers
             }
 
             var roomAmenities = await _room.GetRoomAmenities(amenitiesID, roomId);
-                .Include(r => r.Amenities)
-                .Include(r => r.Room)
-                .FirstOrDefaultAsync(m => m.AmenitiesID == id);
             if (roomAmenities == null)
             {
                 return NotFound();
@@ -150,17 +147,17 @@ namespace Async_Inn.Controllers
         // POST: RoomAmenities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int? amenitiesID, int? roomId)
         {
-            var roomAmenities = await _context.RoomAmenities.FindAsync(id);
+            var roomAmenities = await _room.GetRoomAmenities(amenitiesID, roomId);
             _context.RoomAmenities.Remove(roomAmenities);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RoomAmenitiesExists(int id)
+        private bool RoomAmenitiesExists(int amenitiesID, int roomID)
         {
-            return _context.RoomAmenities.Any(e => e.AmenitiesID == id);
+            return _context.RoomAmenities.Any(e => e.AmenitiesID == amenitiesID && e.RoomID == roomID);
         }
     }
 }

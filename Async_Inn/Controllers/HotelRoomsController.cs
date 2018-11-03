@@ -111,7 +111,7 @@ namespace Async_Inn.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!HotelRoomExists(hotelRoom.HotelID))
+                    if (!HotelRoomExists(hotelRoom.HotelID, hotelRoom.RoomID))
                     {
                         return NotFound();
                     }
@@ -155,9 +155,9 @@ namespace Async_Inn.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool HotelRoomExists(int id)
+        private bool HotelRoomExists(int hotelID, int roomID)
         {
-            return _context.HotelRooms.Any(e => e.HotelID == id);
+            return _context.HotelRooms.Any(e => e.HotelID == hotelID && e.RoomID == roomID);
         }
     }
 }
