@@ -50,6 +50,20 @@ namespace Async_Inn.Models.Services
         }
 
         /// <summary>
+        /// Gets the room amenities and returns it from the db
+        /// </summary>
+        /// <param name="amenitiesID">the amenity id to search for</param>
+        /// <param name="roomID">the room id to search for</param>
+        /// <returns>returns the room amenities</returns>
+        public async Task<RoomAmenities> GetRoomAmenities(int? amenitiesID, int? roomID)
+        {
+            return await _context.RoomAmenities
+                .Include(r => r.Room)
+                .Include(r => r.Amenities)
+                .FirstOrDefaultAsync(ra => ra.AmenitiesID == amenitiesID && ra.RoomID == roomID);
+        }
+
+        /// <summary>
         /// Returns a list of all the rooms
         /// </summary>
         /// <returns>The list of rooms</returns>
