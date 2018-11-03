@@ -30,7 +30,7 @@ namespace Async_Inn
         {
             services.AddMvc();
             services.AddDbContext<AsyncInnDbContext>(options => {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("ProductionDB"));
             });
 
             // adding the services so they refresh every time you click on them
