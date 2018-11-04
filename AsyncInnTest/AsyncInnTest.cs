@@ -201,17 +201,17 @@ namespace AsyncInnTest
         [Fact]
         public void RoomGetterTest()
         {
-            Assert.True(h.Name == "Ocean Room");
+            Assert.True(r.Name == "Ocean Room");
         }
 
         /// <summary>
         /// Tests the setter
         /// </summary>
         [Fact]
-        public void RoomsetterTest()
+        public void RoomSetterTest()
         {
-            h.Name = "Cupid Special";
-            Assert.True(h.Name == "Cupid Special");
+            r.Name = "Cupid Special";
+            Assert.True(r.Name == "Cupid Special");
         }
 
         /// <summary>
@@ -235,7 +235,7 @@ namespace AsyncInnTest
         {
             using (AsyncInnDbContext context = new AsyncInnDbContext(options))
             {
-                Room Room = await context.Rooms.FirstOrDefaultAsync(x => x.ID == 2);
+                Room Room = await context.Rooms.FirstOrDefaultAsync(x => x.ID == 3);
 
                 Room.Name = "Cupid Special";
                 context.Rooms.Update(Room);
@@ -255,7 +255,7 @@ namespace AsyncInnTest
         {
             using (AsyncInnDbContext context = new AsyncInnDbContext(options))
             {
-                Room room = await context.Rooms.FirstOrDefaultAsync(x => x.ID == 2);
+                Room room = await context.Rooms.FirstOrDefaultAsync(x => x.ID == 3);
                 context.Rooms.Remove(room);
                 await context.SaveChangesAsync();
 
