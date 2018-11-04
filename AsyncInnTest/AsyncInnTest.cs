@@ -499,7 +499,7 @@ namespace AsyncInnTest
         [Fact]
         public void RoomAmenitiesGetterTest()
         {
-            Assert.True(ra.Amenities.Name == "Everett");
+            Assert.True(ra.Amenities.Name == "Microwave");
         }
 
         /// <summary>
@@ -508,8 +508,8 @@ namespace AsyncInnTest
         [Fact]
         public void RoomAmenitiesSetterTest()
         {
-            ra.Amenities.Name = "Bellevue";
-            Assert.True(ra.Amenities.Name == "Bellevue");
+            ra.Amenities.Name = "Teapot";
+            Assert.True(ra.Amenities.Name == "Teapot");
         }
 
         /// <summary>
