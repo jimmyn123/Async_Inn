@@ -26,6 +26,17 @@ namespace Async_Inn.Controllers
             return View(await _context.GetAmenities());
         }
 
+        // POST: Amenities
+        [HttpPost]
+        public async Task<IActionResult> Index(string search)
+        {
+            var amenities = await _context.GetAmenities();
+
+            amenities= amenities.Where(x => x.Name.Contains(search));
+
+            return View(amenities);
+        }
+
         // GET: Amenities/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -79,6 +90,55 @@ namespace Async_Inn.Controllers
             }
 
             return View(amenities);
+        }
+        // GET: Amenities/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var amenity = await _context.GetAmenity(id);
+            if (amenity == null)
+            {
+                return NotFound();
+            }
+            return View(amenity);
+        }
+
+        // POST: Amenities/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name")] Amenities amenity)
+        {
+            if (id != amenity.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    await _context.UpdateAmenity(amenity);
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!AmenitiesExists(amenity.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(amenity);
         }
 
         // POST: Amenities/Delete/5

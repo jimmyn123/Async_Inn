@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Async Inn</title>
+    <partial name="_LinksAndScripts.cshtml" />
+</head>
+<body>
+    <div class="container">
+        <header id="bootstrap-override">
+            <h1>Async Winn</h1>
+            An Inn for the Win!
+        </header>
+        <section class="body">
+            @RenderBody()
+        </section>
+    </div>
+    <footer>
+        <nav>
+            <ul>
+                <li class="menuItem">
+                    <a asp-action="../Amenities/Index">Amenities</a>
+                </li>
+                <li class="menuItem">
+                    <a asp-action="../HotelRooms/Index">Hotel Rooms</a>
+                </li>
+                <li class="menuItem">
+                    <a asp-action="../Hotels/Index">Hotels</a>
+                </li>
+                <li class="menuItem">
+                    <a asp-action="../RoomAmenities/Index">Room Amenities</a>
+                </li>
+                <li class="menuItem">
+                    <a asp-action="../Rooms/Index">Rooms</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
