@@ -14,6 +14,37 @@
         </header>
         @RenderBody()
     </div>
+    <footer>
+        <nav>
+            <ul>
+                <li>
+                    <div class="menuItem">
+                        <a asp-action="../Amenities/Index">Amenities</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuItem">
+                        <a asp-action="../HotelRooms/Index">Hotel Rooms</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuItem">
+                        <a asp-action="../Hotels/Index">Hotels</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuItem">
+                        <a asp-action="../RoomAmenities/Index">Room Amenities</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="menuItem">
+                        <a asp-action="../Rooms/Index">Rooms</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </footer>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
